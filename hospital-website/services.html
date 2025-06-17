@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - MedCare Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 2rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .service-description {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .features-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .features-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">MedCare</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="departments.html" class="nav-link">Departments</a></li>
+                    <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="background-image: url('https://images.pexels.com/photos/1250655/pexels-photo-1250655.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Our Services</h1>
+                    <p class="hero-subtitle">Comprehensive healthcare solutions for all your medical needs</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="service-grid">
+                    <div class="service-card">
+                        <img src="https://images.pexels.com/photos/3844581/pexels-photo-3844581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Emergency Care" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Emergency Care</h3>
+                            <p class="service-description">24/7 emergency medical services with state-of-the-art facilities and experienced medical professionals.</p>
+                            <ul class="features-list">
+                                <li>24/7 Emergency Response</li>
+                                <li>Trauma Care Unit</li>
+                                <li>Critical Care Specialists</li>
+                                <li>Advanced Life Support Ambulances</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.pexels.com/photos/3845701/pexels-photo-3845701.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Surgical Services" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Surgical Services</h3>
+                            <p class="service-description">Comprehensive surgical care with advanced technology and expert surgeons.</p>
+                            <ul class="features-list">
+                                <li>General Surgery</li>
+                                <li>Minimally Invasive Procedures</li>
+                                <li>Robotic Surgery</li>
+                                <li>Post-operative Care</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.pexels.com/photos/3846035/pexels-photo-3846035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Diagnostic Services" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Diagnostic Services</h3>
+                            <p class="service-description">Advanced diagnostic testing and imaging services for accurate medical diagnosis.</p>
+                            <ul class="features-list">
+                                <li>MRI & CT Scans</li>
+                                <li>X-ray Services</li>
+                                <li>Laboratory Testing</li>
+                                <li>Ultrasound</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Specialized Care" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Specialized Care</h3>
+                            <p class="service-description">Expert care in various medical specialties by experienced professionals.</p>
+                            <ul class="features-list">
+                                <li>Cardiology</li>
+                                <li>Neurology</li>
+                                <li>Orthopedics</li>
+                                <li>Oncology</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.pexels.com/photos/3279197/pexels-photo-3279197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Rehabilitation" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Rehabilitation</h3>
+                            <p class="service-description">Comprehensive rehabilitation services to help patients recover and regain their independence.</p>
+                            <ul class="features-list">
+                                <li>Physical Therapy</li>
+                                <li>Occupational Therapy</li>
+                                <li>Speech Therapy</li>
+                                <li>Cardiac Rehabilitation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.pexels.com/photos/3376790/pexels-photo-3376790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Preventive Care" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Preventive Care</h3>
+                            <p class="service-description">Comprehensive health screenings and preventive services to maintain your well-being.</p>
+                            <ul class="features-list">
+                                <li>Health Screenings</li>
+                                <li>Vaccinations</li>
+                                <li>Wellness Programs</li>
+                                <li>Nutrition Counseling</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">MedCare Hospital</h3>
+                    <p>Providing quality healthcare services since 1990.</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="services.html" class="footer-link">Services</a></li>
+                        <li><a href="doctors.html" class="footer-link">Doctors</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>123 Hospital Street</li>
+                        <li>City, State 12345</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Email: info@medcare.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
