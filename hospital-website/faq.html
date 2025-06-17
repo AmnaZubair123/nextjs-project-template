@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - MedCare Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .faq-section {
+            margin-bottom: 2rem;
+        }
+
+        .faq-category {
+            background: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .category-header {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+        }
+
+        .category-title {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        .faq-list {
+            padding: 1rem 2rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--light-gray);
+            padding: 1rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: var(--text-color);
+            display: none;
+            padding-top: 1rem;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .search-container {
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+        }
+
+        .contact-support {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-support h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-support p {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">MedCare</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="departments.html" class="nav-link">Departments</a></li>
+                    <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="background-image: url('https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Frequently Asked Questions</h1>
+                    <p class="hero-subtitle">Find answers to common questions about our services and procedures</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="faq-container">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search frequently asked questions...">
+                    </div>
+
+                    <div class="faq-section">
+                        <div class="faq-category">
+                            <div class="category-header">
+                                <h2 class="category-title">Appointments & Visits</h2>
+                            </div>
+                            <div class="faq-list">
+                                <div class="faq-item active">
+                                    <div class="faq-question">How do I schedule an appointment?</div>
+                                    <div class="faq-answer">
+                                        You can schedule an appointment in several ways:
+                                        <ul>
+                                            <li>Use our online appointment booking system</li>
+                                            <li>Call our appointment line at (123) 456-7890</li>
+                                            <li>Visit our reception desk in person</li>
+                                            <li>Email us at appointments@medcare.com</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <div class="faq-question">What should I bring to my appointment?</div>
+                                    <div class="faq-answer">
+                                        Please bring:
+                                        <ul>
+                                            <li>Valid ID</li>
+                                            <li>Insurance card</li>
+                                            <li>List of current medications</li>
+                                            <li>Medical records (if applicable)</li>
+                                            <li>Payment method</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-category">
+                            <div class="category-header">
+                                <h2 class="category-title">Insurance & Billing</h2>
+                            </div>
+                            <div class="faq-list">
+                                <div class="faq-item">
+                                    <div class="faq-question">What insurance plans do you accept?</div>
+                                    <div class="faq-answer">
+                                        We accept most major insurance plans including:
+                                        <ul>
+                                            <li>Medicare</li>
+                                            <li>Blue Cross Blue Shield</li>
+                                            <li>Aetna</li>
+                                            <li>United Healthcare</li>
+                                            <li>Cigna</li>
+                                        </ul>
+                                        Please contact our billing department for specific coverage questions.
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <div class="faq-question">How can I pay my bill?</div>
+                                    <div class="faq-answer">
+                                        We offer several payment options:
+                                        <ul>
+                                            <li>Online payment through our patient portal</li>
+                                            <li>In-person at our billing office</li>
+                                            <li>By phone</li>
+                                            <li>By mail</li>
+                                        </ul>
+                                        We also offer payment plans for those who qualify.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-category">
+                            <div class="category-header">
+                                <h2 class="category-title">Medical Services</h2>
+                            </div>
+                            <div class="faq-list">
+                                <div class="faq-item">
+                                    <div class="faq-question">What emergency services do you provide?</div>
+                                    <div class="faq-answer">
+                                        Our emergency department is open 24/7 and provides comprehensive emergency care including:
+                                        <ul>
+                                            <li>Trauma care</li>
+                                            <li>Cardiac emergencies</li>
+                                            <li>Stroke treatment</li>
+                                            <li>Critical care</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <div class="faq-question">Do you offer telehealth services?</div>
+                                    <div class="faq-answer">
+                                        Yes, we offer telehealth services for:
+                                        <ul>
+                                            <li>Follow-up appointments</li>
+                                            <li>Minor health concerns</li>
+                                            <li>Prescription refills</li>
+                                            <li>Mental health consultations</li>
+                                        </ul>
+                                        Contact your provider to determine if telehealth is appropriate for your needs.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-support">
+                        <h3>Still Have Questions?</h3>
+                        <p>Our support team is here to help you with any questions or concerns you may have.</p>
+                        <a href="contact.html" class="btn btn-primary">Contact Support</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">MedCare Hospital</h3>
+                    <p>Providing quality healthcare services since 1990.</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="services.html" class="footer-link">Services</a></li>
+                        <li><a href="doctors.html" class="footer-link">Doctors</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>123 Hospital Street</li>
+                        <li>City, State 12345</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Email: info@medcare.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
