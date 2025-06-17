@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Testimonials - MedCare Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .testimonial-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 0.25rem;
+            background: var(--white);
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .featured-testimonial {
+            background: var(--white);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .featured-testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 6rem;
+            color: var(--primary-color);
+            opacity: 0.1;
+            font-family: serif;
+        }
+
+        .featured-content {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .featured-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h3 {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 1.25rem;
+        }
+
+        .author-info p {
+            margin: 0;
+            color: #666;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-author h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .testimonial-author p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .testimonial-content {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-rating {
+            color: #fbbf24;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-date {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .testimonial-department {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--light-gray);
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        .page-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 0.25rem;
+            background: var(--white);
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn:hover,
+        .page-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">MedCare</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="departments.html" class="nav-link">Departments</a></li>
+                    <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="background-image: url('https://images.pexels.com/photos/4226264/pexels-photo-4226264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Patient Testimonials</h1>
+                    <p class="hero-subtitle">Read what our patients say about their experience at MedCare Hospital</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="testimonials-container">
+                    <div class="testimonial-filters">
+                        <button class="filter-btn active">All Departments</button>
+                        <button class="filter-btn">Cardiology</button>
+                        <button class="filter-btn">Orthopedics</button>
+                        <button class="filter-btn">Pediatrics</button>
+                        <button class="filter-btn">Oncology</button>
+                    </div>
+
+                    <div class="featured-testimonial">
+                        <p class="featured-content">
+                            "The care I received at MedCare Hospital was exceptional. From the moment I walked in, I felt welcomed and cared for. The medical team was professional, compassionate, and thoroughly explained every step of my treatment. I couldn't have asked for better care."
+                        </p>
+                        <div class="featured-author">
+                            <img src="https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Sarah Wilson" class="author-image">
+                            <div class="author-info">
+                                <h3>Sarah Wilson</h3>
+                                <p>Cardiology Patient</p>
+                                <div class="testimonial-rating">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="John Davis" class="testimonial-avatar">
+                                <div class="testimonial-author">
+                                    <h3>John Davis</h3>
+                                    <p>Orthopedics Patient</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-content">
+                                "After my knee surgery, the rehabilitation team was incredible. They helped me recover faster than I expected."
+                            </p>
+                            <span class="testimonial-department">Orthopedics</span>
+                            <div class="testimonial-date">May 15, 2023</div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="https://images.pexels.com/photos/3760274/pexels-photo-3760274.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Emily Thompson" class="testimonial-avatar">
+                                <div class="testimonial-author">
+                                    <h3>Emily Thompson</h3>
+                                    <p>Pediatrics Patient</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-content">
+                                "The pediatric staff was amazing with my daughter. They made her feel comfortable and less scared."
+                            </p>
+                            <span class="testimonial-department">Pediatrics</span>
+                            <div class="testimonial-date">May 10, 2023</div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="https://images.pexels.com/photos/3831643/pexels-photo-3831643.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Michael Brown" class="testimonial-avatar">
+                                <div class="testimonial-author">
+                                    <h3>Michael Brown</h3>
+                                    <p>Cardiology Patient</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-content">
+                                "Dr. Johnson and her team provided excellent care during my heart procedure. Very professional and caring."
+                            </p>
+                            <span class="testimonial-department">Cardiology</span>
+                            <div class="testimonial-date">May 5, 2023</div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="https://images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Lisa Chen" class="testimonial-avatar">
+                                <div class="testimonial-author">
+                                    <h3>Lisa Chen</h3>
+                                    <p>Oncology Patient</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-content">
+                                "The oncology team was supportive throughout my entire treatment journey. Forever grateful."
+                            </p>
+                            <span class="testimonial-department">Oncology</span>
+                            <div class="testimonial-date">April 30, 2023</div>
+                        </div>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">Next →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">MedCare Hospital</h3>
+                    <p>Providing quality healthcare services since 1990.</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="services.html" class="footer-link">Services</a></li>
+                        <li><a href="doctors.html" class="footer-link">Doctors</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>123 Hospital Street</li>
+                        <li>City, State 12345</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Email: info@medcare.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
