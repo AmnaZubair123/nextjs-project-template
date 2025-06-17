@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments - MedCare Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .department-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .department-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .department-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .department-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .department-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .department-description {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .department-features {
+            list-style: none;
+            margin-top: auto;
+        }
+        
+        .department-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .department-features li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .department-contact {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .department-contact p {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">MedCare</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="departments.html" class="nav-link">Departments</a></li>
+                    <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="background-image: url('https://images.pexels.com/photos/247786/pexels-photo-247786.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Our Departments</h1>
+                    <p class="hero-subtitle">Specialized care across multiple medical disciplines</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="card-grid">
+                    <div class="department-card">
+                        <img src="https://images.pexels.com/photos/4226119/pexels-photo-4226119.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Cardiology" class="department-image">
+                        <div class="department-content">
+                            <h3 class="department-title">Cardiology</h3>
+                            <p class="department-description">Comprehensive cardiac care with state-of-the-art facilities and experienced cardiologists.</p>
+                            <ul class="department-features">
+                                <li>Heart Disease Treatment</li>
+                                <li>Cardiac Surgery</li>
+                                <li>Preventive Cardiology</li>
+                                <li>Cardiac Rehabilitation</li>
+                            </ul>
+                            <div class="department-contact">
+                                <p><strong>Head of Department:</strong> Dr. Sarah Johnson</p>
+                                <p><strong>Contact:</strong> cardiology@medcare.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="department-card">
+                        <img src="https://images.pexels.com/photos/4225920/pexels-photo-4225920.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Neurology" class="department-image">
+                        <div class="department-content">
+                            <h3 class="department-title">Neurology</h3>
+                            <p class="department-description">Expert care for neurological conditions with advanced diagnostic and treatment options.</p>
+                            <ul class="department-features">
+                                <li>Neurological Disorders</li>
+                                <li>Brain & Spine Surgery</li>
+                                <li>Stroke Treatment</li>
+                                <li>Neuro-rehabilitation</li>
+                            </ul>
+                            <div class="department-contact">
+                                <p><strong>Head of Department:</strong> Dr. Michael Chen</p>
+                                <p><strong>Contact:</strong> neurology@medcare.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="department-card">
+                        <img src="https://images.pexels.com/photos/4226148/pexels-photo-4226148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Orthopedics" class="department-image">
+                        <div class="department-content">
+                            <h3 class="department-title">Orthopedics</h3>
+                            <p class="department-description">Specialized care for bone, joint, and muscle conditions with modern treatment approaches.</p>
+                            <ul class="department-features">
+                                <li>Joint Replacement</li>
+                                <li>Sports Medicine</li>
+                                <li>Spine Surgery</li>
+                                <li>Trauma Care</li>
+                            </ul>
+                            <div class="department-contact">
+                                <p><strong>Head of Department:</strong> Dr. Robert Smith</p>
+                                <p><strong>Contact:</strong> orthopedics@medcare.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="department-card">
+                        <img src="https://images.pexels.com/photos/4226256/pexels-photo-4226256.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Pediatrics" class="department-image">
+                        <div class="department-content">
+                            <h3 class="department-title">Pediatrics</h3>
+                            <p class="department-description">Comprehensive healthcare for children from newborns to adolescents.</p>
+                            <ul class="department-features">
+                                <li>Child Healthcare</li>
+                                <li>Vaccination</li>
+                                <li>Pediatric Surgery</li>
+                                <li>Developmental Care</li>
+                            </ul>
+                            <div class="department-contact">
+                                <p><strong>Head of Department:</strong> Dr. Emily Brown</p>
+                                <p><strong>Contact:</strong> pediatrics@medcare.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="department-card">
+                        <img src="https://images.pexels.com/photos/4226122/pexels-photo-4226122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Oncology" class="department-image">
+                        <div class="department-content">
+                            <h3 class="department-title">Oncology</h3>
+                            <p class="department-description">Advanced cancer care with personalized treatment plans and support services.</p>
+                            <ul class="department-features">
+                                <li>Cancer Treatment</li>
+                                <li>Chemotherapy</li>
+                                <li>Radiation Therapy</li>
+                                <li>Cancer Surgery</li>
+                            </ul>
+                            <div class="department-contact">
+                                <p><strong>Head of Department:</strong> Dr. Lisa Wong</p>
+                                <p><strong>Contact:</strong> oncology@medcare.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="department-card">
+                        <img src="https://images.pexels.com/photos/4226147/pexels-photo-4226147.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Gynecology" class="department-image">
+                        <div class="department-content">
+                            <h3 class="department-title">Gynecology</h3>
+                            <p class="department-description">Comprehensive women's health care services with experienced specialists.</p>
+                            <ul class="department-features">
+                                <li>Women's Health</li>
+                                <li>Obstetrics</li>
+                                <li>Fertility Treatment</li>
+                                <li>Gynecologic Surgery</li>
+                            </ul>
+                            <div class="department-contact">
+                                <p><strong>Head of Department:</strong> Dr. Amanda Martinez</p>
+                                <p><strong>Contact:</strong> gynecology@medcare.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">MedCare Hospital</h3>
+                    <p>Providing quality healthcare services since 1990.</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="services.html" class="footer-link">Services</a></li>
+                        <li><a href="doctors.html" class="footer-link">Doctors</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>123 Hospital Street</li>
+                        <li>City, State 12345</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Email: info@medcare.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
