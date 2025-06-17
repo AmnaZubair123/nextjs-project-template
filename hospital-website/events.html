@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - MedCare Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .events-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .events-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 0.25rem;
+            background: var(--white);
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .featured-event {
+            background: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+        }
+
+        .featured-image {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-date {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .featured-title {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .event-details {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .event-info {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .register-btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .register-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .event-content {
+            padding: 1.5rem;
+        }
+
+        .event-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .event-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .calendar-section {
+            margin-top: 3rem;
+            background: var(--white);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .calendar-title {
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .calendar-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 0.25rem;
+            background: var(--white);
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-btn:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-day:hover {
+            background: var(--light-gray);
+        }
+
+        .calendar-day.has-event {
+            background: var(--primary-color);
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .featured-event {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">MedCare</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="departments.html" class="nav-link">Departments</a></li>
+                    <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="background-image: url('https://images.pexels.com/photos/3845701/pexels-photo-3845701.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Upcoming Events</h1>
+                    <p class="hero-subtitle">Join our health seminars, workshops, and community events</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="events-container">
+                    <div class="events-filters">
+                        <button class="filter-btn active">All Events</button>
+                        <button class="filter-btn">Health Seminars</button>
+                        <button class="filter-btn">Workshops</button>
+                        <button class="filter-btn">Community Events</button>
+                        <button class="filter-btn">Webinars</button>
+                    </div>
+
+                    <div class="featured-event">
+                        <img src="https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Health & Wellness Expo" class="featured-image">
+                        <div class="featured-content">
+                            <span class="event-date">June 25, 2023</span>
+                            <h2 class="featured-title">Annual Health & Wellness Expo</h2>
+                            <div class="event-info">
+                                <div class="info-item">Time: 9:00 AM - 5:00 PM</div>
+                                <div class="info-item">Location: Main Auditorium</div>
+                            </div>
+                            <p class="event-details">
+                                Join us for our annual Health & Wellness Expo featuring free health screenings, expert talks, fitness demonstrations, and healthy cooking workshops.
+                            </p>
+                            <a href="#" class="register-btn">Register Now</a>
+                        </div>
+                    </div>
+
+                    <div class="events-grid">
+                        <div class="event-card">
+                            <img src="https://images.pexels.com/photos/4226119/pexels-photo-4226119.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Heart Health Seminar" class="event-image">
+                            <div class="event-content">
+                                <span class="event-date">June 28, 2023</span>
+                                <h3 class="event-title">Heart Health Seminar</h3>
+                                <div class="event-meta">
+                                    <div>Time: 2:00 PM - 4:00 PM</div>
+                                    <div>Location: Conference Room A</div>
+                                    <div>Speaker: Dr. Sarah Johnson</div>
+                                </div>
+                                <a href="#" class="register-btn">Register Now</a>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <img src="https://images.pexels.com/photos/4226264/pexels-photo-4226264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Mental Health Workshop" class="event-image">
+                            <div class="event-content">
+                                <span class="event-date">July 2, 2023</span>
+                                <h3 class="event-title">Mental Health Workshop</h3>
+                                <div class="event-meta">
+                                    <div>Time: 10:00 AM - 12:00 PM</div>
+                                    <div>Location: Seminar Hall</div>
+                                    <div>Speaker: Dr. Michael Chen</div>
+                                </div>
+                                <a href="#" class="register-btn">Register Now</a>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <img src="https://images.pexels.com/photos/4226147/pexels-photo-4226147.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Nutrition Workshop" class="event-image">
+                            <div class="event-content">
+                                <span class="event-date">July 5, 2023</span>
+                                <h3 class="event-title">Healthy Eating Workshop</h3>
+                                <div class="event-meta">
+                                    <div>Time: 3:00 PM - 5:00 PM</div>
+                                    <div>Location: Cafeteria</div>
+                                    <div>Speaker: Dr. Emily Brown</div>
+                                </div>
+                                <a href="#" class="register-btn">Register Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calendar-section">
+                        <div class="calendar-header">
+                            <h2 class="calendar-title">Events Calendar</h2>
+                            <div class="calendar-nav">
+                                <button class="calendar-btn">← Previous</button>
+                                <button class="calendar-btn">Next →</button>
+                            </div>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="calendar-day">1</div>
+                            <div class="calendar-day">2</div>
+                            <div class="calendar-day has-event">3</div>
+                            <div class="calendar-day">4</div>
+                            <div class="calendar-day has-event">5</div>
+                            <div class="calendar-day">6</div>
+                            <div class="calendar-day">7</div>
+                            <!-- Add more days as needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">MedCare Hospital</h3>
+                    <p>Providing quality healthcare services since 1990.</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="services.html" class="footer-link">Services</a></li>
+                        <li><a href="doctors.html" class="footer-link">Doctors</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>123 Hospital Street</li>
+                        <li>City, State 12345</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Email: info@medcare.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
