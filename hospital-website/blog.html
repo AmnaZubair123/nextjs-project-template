@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - MedCare Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .blog-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .blog-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 0.25rem;
+            background: var(--white);
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .featured-post {
+            background: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+        }
+
+        .featured-image {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-category {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .featured-title {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .featured-excerpt {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: auto;
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .blog-excerpt {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        .page-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 0.25rem;
+            background: var(--white);
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn:hover,
+        .page-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">MedCare</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="departments.html" class="nav-link">Departments</a></li>
+                    <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="background-image: url('https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Health & Wellness Blog</h1>
+                    <p class="hero-subtitle">Stay informed with the latest health tips and medical insights</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="blog-container">
+                    <div class="blog-filters">
+                        <button class="filter-btn active">All Posts</button>
+                        <button class="filter-btn">Health Tips</button>
+                        <button class="filter-btn">Medical Research</button>
+                        <button class="filter-btn">Wellness</button>
+                        <button class="filter-btn">Hospital News</button>
+                    </div>
+
+                    <article class="featured-post">
+                        <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Understanding Heart Health" class="featured-image">
+                        <div class="featured-content">
+                            <span class="post-category">Health Tips</span>
+                            <h2 class="featured-title">Understanding Heart Health: Tips for a Healthy Lifestyle</h2>
+                            <p class="featured-excerpt">
+                                Learn about the essential steps you can take to maintain a healthy heart. From diet and exercise to stress management, discover comprehensive strategies for cardiovascular wellness.
+                            </p>
+                            <div class="post-meta">
+                                <div class="author-info">
+                                    <img src="https://images.pexels.com/photos/4173239/pexels-photo-4173239.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Dr. Sarah Johnson" class="author-avatar">
+                                    <span>Dr. Sarah Johnson</span>
+                                </div>
+                                <span>June 15, 2023</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <div class="blog-grid">
+                        <article class="blog-card">
+                            <img src="https://images.pexels.com/photos/4386464/pexels-photo-4386464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Mental Health Tips" class="blog-image">
+                            <div class="blog-content">
+                                <span class="post-category">Wellness</span>
+                                <h3 class="blog-title">5 Essential Mental Health Tips for Modern Life</h3>
+                                <p class="blog-excerpt">
+                                    Discover practical strategies for maintaining good mental health in today's fast-paced world.
+                                </p>
+                                <div class="post-meta">
+                                    <div class="author-info">
+                                        <img src="https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Dr. Michael Chen" class="author-avatar">
+                                        <span>Dr. Michael Chen</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </article>
+
+                        <article class="blog-card">
+                            <img src="https://images.pexels.com/photos/4386469/pexels-photo-4386469.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Nutrition Guide" class="blog-image">
+                            <div class="blog-content">
+                                <span class="post-category">Health Tips</span>
+                                <h3 class="blog-title">A Complete Guide to Balanced Nutrition</h3>
+                                <p class="blog-excerpt">
+                                    Learn about the essential nutrients your body needs and how to maintain a balanced diet.
+                                </p>
+                                <div class="post-meta">
+                                    <div class="author-info">
+                                        <img src="https://images.pexels.com/photos/4173246/pexels-photo-4173246.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Dr. Emily Brown" class="author-avatar">
+                                        <span>Dr. Emily Brown</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </article>
+
+                        <article class="blog-card">
+                            <img src="https://images.pexels.com/photos/4386465/pexels-photo-4386465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Sleep Health" class="blog-image">
+                            <div class="blog-content">
+                                <span class="post-category">Wellness</span>
+                                <h3 class="blog-title">The Importance of Quality Sleep</h3>
+                                <p class="blog-excerpt">
+                                    Understand how sleep affects your health and learn tips for better sleep habits.
+                                </p>
+                                <div class="post-meta">
+                                    <div class="author-info">
+                                        <img src="https://images.pexels.com/photos/4173248/pexels-photo-4173248.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Dr. Robert Smith" class="author-avatar">
+                                        <span>Dr. Robert Smith</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </article>
+
+                        <article class="blog-card">
+                            <img src="https://images.pexels.com/photos/4386468/pexels-photo-4386468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Exercise Benefits" class="blog-image">
+                            <div class="blog-content">
+                                <span class="post-category">Health Tips</span>
+                                <h3 class="blog-title">Benefits of Regular Exercise</h3>
+                                <p class="blog-excerpt">
+                                    Explore how regular physical activity can improve your overall health and well-being.
+                                </p>
+                                <div class="post-meta">
+                                    <div class="author-info">
+                                        <img src="https://images.pexels.com/photos/4173241/pexels-photo-4173241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Dr. Lisa Wong" class="author-avatar">
+                                        <span>Dr. Lisa Wong</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">Next →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">MedCare Hospital</h3>
+                    <p>Providing quality healthcare services since 1990.</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="services.html" class="footer-link">Services</a></li>
+                        <li><a href="doctors.html" class="footer-link">Doctors</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>123 Hospital Street</li>
+                        <li>City, State 12345</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Email: info@medcare.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
