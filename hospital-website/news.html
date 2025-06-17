@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Updates - MedCare Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .news-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .news-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 0.25rem;
+            background: var(--white);
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-category {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .news-excerpt {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--light-gray);
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .featured-news {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            background: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .featured-image {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-title {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        .page-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 0.25rem;
+            background: var(--white);
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn:hover,
+        .page-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .featured-news {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">MedCare</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="departments.html" class="nav-link">Departments</a></li>
+                    <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="background-image: url('https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">News & Updates</h1>
+                    <p class="hero-subtitle">Stay informed about the latest developments at MedCare Hospital</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="news-container">
+                    <div class="news-filters">
+                        <button class="filter-btn active">All News</button>
+                        <button class="filter-btn">Hospital Updates</button>
+                        <button class="filter-btn">Medical Research</button>
+                        <button class="filter-btn">Events</button>
+                        <button class="filter-btn">Community</button>
+                    </div>
+
+                    <article class="featured-news">
+                        <img src="https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="New Medical Center Opening" class="featured-image">
+                        <div class="featured-content">
+                            <span class="news-category">Hospital Updates</span>
+                            <h2 class="featured-title">New State-of-the-Art Medical Center Opening</h2>
+                            <p class="news-excerpt">We're excited to announce the opening of our new medical center, featuring cutting-edge technology and expanded services to better serve our community.</p>
+                            <div class="news-meta">
+                                <span>June 15, 2023</span>
+                                <span>By Dr. Sarah Johnson</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <div class="news-grid">
+                        <article class="news-card">
+                            <img src="https://images.pexels.com/photos/4226119/pexels-photo-4226119.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Research Breakthrough" class="news-image">
+                            <div class="news-content">
+                                <span class="news-category">Medical Research</span>
+                                <h3 class="news-title">Breakthrough in Cancer Treatment Research</h3>
+                                <p class="news-excerpt">Our research team has made significant progress in developing new cancer treatment methods...</p>
+                                <div class="news-meta">
+                                    <span>June 10, 2023</span>
+                                    <span>By Dr. Michael Chen</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="news-card">
+                            <img src="https://images.pexels.com/photos/4226148/pexels-photo-4226148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Community Health Fair" class="news-image">
+                            <div class="news-content">
+                                <span class="news-category">Events</span>
+                                <h3 class="news-title">Annual Community Health Fair</h3>
+                                <p class="news-excerpt">Join us for our annual health fair featuring free screenings, workshops, and family activities...</p>
+                                <div class="news-meta">
+                                    <span>June 5, 2023</span>
+                                    <span>By Events Team</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="news-card">
+                            <img src="https://images.pexels.com/photos/4226256/pexels-photo-4226256.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="New Department" class="news-image">
+                            <div class="news-content">
+                                <span class="news-category">Hospital Updates</span>
+                                <h3 class="news-title">New Pediatric Wing Opening</h3>
+                                <p class="news-excerpt">We're expanding our pediatric services with a new specialized wing dedicated to children's care...</p>
+                                <div class="news-meta">
+                                    <span>June 1, 2023</span>
+                                    <span>By Dr. Emily Brown</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="news-card">
+                            <img src="https://images.pexels.com/photos/4226122/pexels-photo-4226122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Community Program" class="news-image">
+                            <div class="news-content">
+                                <span class="news-category">Community</span>
+                                <h3 class="news-title">New Community Health Program</h3>
+                                <p class="news-excerpt">Launching a new initiative to provide healthcare education and support to underserved communities...</p>
+                                <div class="news-meta">
+                                    <span>May 28, 2023</span>
+                                    <span>By Community Team</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="news-card">
+                            <img src="https://images.pexels.com/photos/4226147/pexels-photo-4226147.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Medical Conference" class="news-image">
+                            <div class="news-content">
+                                <span class="news-category">Events</span>
+                                <h3 class="news-title">International Medical Conference</h3>
+                                <p class="news-excerpt">MedCare Hospital to host international conference on advanced medical technologies...</p>
+                                <div class="news-meta">
+                                    <span>May 25, 2023</span>
+                                    <span>By Events Team</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">Next →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">MedCare Hospital</h3>
+                    <p>Providing quality healthcare services since 1990.</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="services.html" class="footer-link">Services</a></li>
+                        <li><a href="doctors.html" class="footer-link">Doctors</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>123 Hospital Street</li>
+                        <li>City, State 12345</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Email: info@medcare.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
